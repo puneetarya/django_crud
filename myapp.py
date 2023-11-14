@@ -44,4 +44,12 @@ update_data = {
     'city':'Jhajjar'
 }
 
-update_person_data(data=update_data, URL=URL)
+#update_person_data(data=update_data, URL=URL)
+delete_data = {'id':3}
+def delete_person_data(data, URL):
+    json_data = json.dumps(data)
+    r = requests.delete(url=URL, data=json_data)
+    response = r.json()
+    print(response)
+
+delete_person_data(delete_data, URL=URL)
