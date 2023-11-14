@@ -34,11 +34,13 @@ def post_person_data(data, URL):
 
 def update_person_data(data, URL):
     json_data = json.dumps(data)
-    r = requests.post(url=URL, data=json_data)
+    r = requests.put(url=URL, data=json_data)
     response = r.json()
     print(response)
 
 update_data = {
+    'id' : 3,
+    'name':'Ravi',
     'city':'Jhajjar'
 }
 
