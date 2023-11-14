@@ -4,7 +4,7 @@ from rest_framework.parsers import JSONParser
 from .models import Student
 from .serializers import StudentSerializer
 from rest_framework.renderers import JSONRenderer
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -78,5 +78,6 @@ def student_api(request):
         stu = Student.objects.get(id=id)
         stu.delete()
         res = {'msg':'Data Deleted'}
-        json_data = JSONRenderer().render(res)
-        return HttpResponse(json_data, content_type = 'application/json')
+        #json_data = JSONRenderer().render(res)
+        #return HttpResponse(json_data, content_type = 'application/json')
+        return JsonResponse(res, safe=False)
