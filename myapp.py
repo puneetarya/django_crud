@@ -15,5 +15,31 @@ def get_person_data(id=None, URL=None):
 
 
 
-get_person_data(id=1, URL=URL)
-get_person_data(URL=URL)
+#get_person_data(id=1, URL=URL)
+#get_person_data(URL=URL)
+data = {
+    'name':'Ravi',
+    'roll':3,
+    'city':'jhajjar'
+}
+
+def post_person_data(data, URL):
+
+    json_data = json.dumps(data)
+    r = requests.post(url = URL, data=json_data)
+    response = r.json()
+    print(response)
+
+#post_person_data(data=data, URL=URL)
+
+def update_person_data(data, URL):
+    json_data = json.dumps(data)
+    r = requests.post(url=URL, data=json_data)
+    response = r.json()
+    print(response)
+
+update_data = {
+    'city':'Jhajjar'
+}
+
+update_person_data(data=update_data, URL=URL)
